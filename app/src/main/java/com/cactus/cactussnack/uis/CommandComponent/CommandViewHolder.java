@@ -12,6 +12,8 @@ public class CommandViewHolder extends RecyclerView.ViewHolder {
     public EditText quantity;
     public TextView productLabel;
     public TextView productUnitPrice;
+    public TextView productQtyFactor;
+    public TextView productPrice;
 
     public CommandViewHolder(final Context context, View itemView) {
         super(itemView);
@@ -19,6 +21,8 @@ public class CommandViewHolder extends RecyclerView.ViewHolder {
         quantity = (EditText) itemView.findViewById(R.id.product_quantity);
         productLabel = (TextView) itemView.findViewById(R.id.product_label);
         productUnitPrice = (TextView) itemView.findViewById(R.id.product_unit_price);
+        productQtyFactor = (TextView) itemView.findViewById(R.id.product_qty_factor);
+        productPrice = (TextView) itemView.findViewById(R.id.product_price);
     }
 }
 

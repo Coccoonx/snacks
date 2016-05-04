@@ -13,14 +13,15 @@
         tools:showIn="@layout/activity_command"
         tools:context="com.cactus.cactussnack.uis.CommandActivity">
 
-    <LinearLayout
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
         <LinearLayout
+                android:id="@+id/autocomplete"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
             <AutoCompleteTextView
                     android:id="@+id/command_requester"
@@ -31,11 +32,13 @@
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="@dimen/margin_small"
                 android:id="@+id/recycler"
+                android:layout_below="@+id/autocomplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|top"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
