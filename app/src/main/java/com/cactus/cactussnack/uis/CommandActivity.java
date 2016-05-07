@@ -21,6 +21,8 @@ import com.cactus.cactussnack.server.FakeServer;
 import com.cactus.cactussnack.uis.CommandComponent.AutoCompleteAdapter;
 import com.cactus.cactussnack.uis.CommandComponent.CommandAdapter;
 
+import java.security.Timestamp;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -126,7 +128,7 @@ public class CommandActivity extends AppCompatActivity {
     private void sendCommand() {
         if (CommandAdapter.commandRows != null && CommandAdapter.commandRows.size() > 0) {
             newCommand = new Command();
-            newCommand.setClientName("Lyonnel :-)");
+            newCommand.setClientName("Commande "+ new Date().getTime());
             newCommand.setClientPhone("673632095");
             newCommand.setDateCommand(new Date());
             newCommand.setProductsRequested(CommandAdapter.commandRows);

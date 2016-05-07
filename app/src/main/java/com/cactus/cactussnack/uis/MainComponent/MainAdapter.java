@@ -60,10 +60,10 @@ public class MainAdapter extends RecyclerView.Adapter<ListCommandViewHolder> {
         cardTitle.commandDate.setText(format.format(command.getDateCommand()));
         cardTitle.commandAmount.setText(format.format(command.getDateCommand()));
         if (command.isStatus()) {
-            cardTitle.commandStatus.setTextColor(R.color.colorPrimary);
+            cardTitle.commandStatus.setTextColor(mContext.getResources().getColor(R.color.colorPrimary));
             cardTitle.commandStatus.setText("LIVRE");
         } else {
-            cardTitle.commandStatus.setTextColor(android.R.color.holo_orange_light);
+            cardTitle.commandStatus.setTextColor(mContext.getResources().getColor(android.R.color.holo_orange_light));
             cardTitle.commandStatus.setText("NON LIVRE");
 
         }

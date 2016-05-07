@@ -23,4 +23,8 @@
 
     <string name="action_settings">Settings</string>
     <string name="total_label">Total :</string>
+    <string name="commands_label">Commande</string>
+    <string name="products_label">Produits</string>
+    <string name="logout_label">Deconnecté</string>
+    <string name="about_label">A propos</string>
 </resources>
