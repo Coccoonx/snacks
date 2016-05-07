@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,9 +16,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.cactus.cactussnack.R;
+import com.cactus.cactussnack.core.Profile;
+import com.cactus.cactussnack.uis.CommandComponent.CommandAdapter;
+import com.cactus.cactussnack.uis.MainComponent.MainAdapter;
+import com.cactus.cactussnack.uis.MainComponent.SimpleDividerItemDecoration;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private RecyclerView mRecyclerView;
+    private MainAdapter mCommandAdapter;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mCommandAdapter.notifyDataSetChanged();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +55,19 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        // Get the recycler view
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler);
+
+        // Set an adapter to this recycler view
+        mCommandAdapter = new MainAdapter(this, Profile.getCommandList());
+        mRecyclerView.setAdapter(mCommandAdapter);
+
+        // Set the behaviour of this recycler view
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(this));
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

@@ -1,58 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
-            android:layout_width="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp">
-        <TextView
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/product_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="33 exp"
-                android:id="@+id/product_label"
-        />
+                android:textColor="@android:color/black"
+                android:textSize="16dp"
+                android:text="33 exp" />
 
-        <LinearLayout android:layout_width="wrap_content"
-                      android:layout_below="@+id/product_label"
-                      android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small_extra"
+                android:layout_below="@+id/product_label">
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="600"
+                <TextView
                     android:id="@+id/product_unit_price"
-            />
-
-            <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="invisible"
+                    android:text="600" />
+
+                <TextView
+                    android:id="@+id/product_qty_factor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_small_extra"
                     android:text="x 10 ="
-                    android:id="@+id/product_qty_factor"
-            />
+                    android:visibility="invisible" />
 
-            <TextView
+                <TextView
+                    android:id="@+id/product_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="invisible"
                     android:layout_marginLeft="@dimen/margin_small"
                     android:text="6000"
                     android:textStyle="bold"
-                    android:id="@+id/product_price"
-            />
+                    android:visibility="invisible" />
+            </LinearLayout>
         </LinearLayout>
 
-        <EditText
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/qty_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qtity :"
+                android:layout_marginRight="@dimen/margin_small"
+                android:textColor="@android:color/black"
+                android:textStyle="normal"
+                android:visibility="visible" />
+            <EditText
+                android:id="@+id/product_quantity"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/product_quantity"
-                android:inputType="number"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"/>
+                android:layout_alignParentBottom="true"
+                android:hint="0"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>
